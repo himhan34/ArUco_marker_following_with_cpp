@@ -15,9 +15,9 @@ using namespace std;
 class ImageConverter {
 public:
     ImageConverter() {
-        pose_pub = nh.advertise<geometry_msgs::Pose>("pose", 1);
-        image_pub = nh.advertise<sensor_msgs::Image>("image", 1);
-        image_sub = nh.subscribe("/camera/color/image_raw", 1, &ImageConverter::callback, this);
+        pose_pub = nh.advertise<geometry_msgs::Pose>("pose", 1000);
+        image_pub = nh.advertise<sensor_msgs::Image>("image", 1000);
+        image_sub = nh.subscribe("/camera/color/image_raw", 1000, &ImageConverter::callback, this);
 
         loadCameraCalibration("/home/fish/fish_ws/src/aruco/src/image_web/ost1.yaml");
     }
@@ -35,7 +35,7 @@ public:
         Mat gray;
         cvtColor(cv_image, gray, COLOR_BGR2GRAY);
 
-        Ptr<aruco::Dictionary> aruco_dict = aruco::getPredefinedDictionary(aruco::DICT_4X4_250);
+        Ptr<aruco::Dictionary> aruco_dict = aruco::getPredefinedDictionary(aruco::DICT_7X7_1000);
         Ptr<aruco::DetectorParameters> parameters = aruco::DetectorParameters::create();
 
         Mat img_HE;

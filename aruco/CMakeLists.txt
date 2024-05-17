@@ -47,16 +47,16 @@ include_directories(
 )
 
 ## Declare C++ executables
-add_executable(test_node src/test.cpp)
-add_executable(test_ros_node src/test_ros.cpp)
-add_executable(image_capture_node src/image_capture.cpp)
-add_executable(camera_calibration_node src/camera_calibration.cpp)
+add_executable(test src/test.cpp)
+add_executable(test_ros src/test_ros.cpp)
+add_executable(image_capture src/image_capture.cpp)
+add_executable(camera_calibration src/camera_calibration.cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(test_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-target_link_libraries(test_ros_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-target_link_libraries(image_capture_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-target_link_libraries(camera_calibration_node ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(test ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(test_ros ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(image_capture ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(camera_calibration ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 #############
 ## Install ##
